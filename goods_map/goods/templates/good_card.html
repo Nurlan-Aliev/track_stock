@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block main %}
+
+
+<div class="card">
+    <div class="card-header bg-light text-white">
+        <h1 class="mb-4">{{ good }}</h1>
+    </div>
+
+    <h2>Сюда вставлю картинку когда разберусь как это сделать, а пока только тест</h2>
+
+
+
+    <div class="card-body bg-light">
+        <p>
+            {{ good.wholesale_price }}
+        </p>
+        <hr>
+
+        <div class="container">
+            <div class="row p-1">
+
+                <div class="col">
+                    Cost price
+                </div>
+
+                <div class="col">
+                    {{ good.cost_price }}
+                </div>
+            </div>
+
+            <div class="row p-1">
+
+                <div class="col">
+                    Retail price
+                </div>
+
+                <div class="col">
+                        {{ good.retail_price }}
+                </div>
+            </div>
+
+            <div class="row p-1">
+
+                <div class="col">
+                    weight
+                </div>
+
+                <div class="col">
+                    {{ good.weight }}
+                </div>
+            </div>
+
+
+
+
+            <div>
+                <a href="{% url 'update_good' pk=good.id %}">Update</a>
+
+                <br>
+                <a href="{% url 'delete_good' pk=good.id %}">Delete</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock%}

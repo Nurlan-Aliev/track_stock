@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+
+
+<div class="container wrapper flex-grow">
+    <h1 class="my-4">
+        {{ object }}
+    </h1>
+    <p>Are you sure you want to delete?</p>
+        <form method="post">
+        {% csrf_token %}
+            <button class="btn btn-danger mb-3" type="submit">'Yes, delete'</button>
+    </form>
+</div>
+{% endblock %}

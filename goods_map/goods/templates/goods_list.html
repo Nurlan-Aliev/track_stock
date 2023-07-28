@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block main %}
+
+<h1 class="my-4">List of goods</h1>
+
+<a href="{% url 'create_good' %}">create good</a>
+
+<table class="table table-striped">
+    <tr>
+
+        <th>Name</th>
+        <th>Cost price</th>
+        <th>Wholesale price</th>
+        <th>Retail price</th>
+        <th>Weight</th>
+    </tr>
+    {% for good in object_list %}
+    <tr>
+        <td><a href="{% url 'good_card' pk=good.id %}">{{ good }}</a></td>
+        <td>{{ good.cost_price }}</td>
+        <td>{{ good.wholesale_price }}</td>
+        <td>{{ good.retail_price }}</td>
+        <td>{{ good.weight }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock%}
