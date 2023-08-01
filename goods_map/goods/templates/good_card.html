@@ -25,7 +25,11 @@
                 </div>
 
                 <div class="col">
+                    {% if object.cost_price %}
                     {{ object.cost_price }} ¥
+                    {% else %}
+                    ---
+                    {% endif %}
                 </div>
             </div>
 
@@ -36,7 +40,12 @@
                 </div>
 
                 <div class="col">
+                    {% if object.wholesale_price %}
                     {{ object.wholesale_price }} ₼
+                    {% else %}
+                    ---
+                    {% endif %}
+
                 </div>
             </div>
 
@@ -47,7 +56,11 @@
                 </div>
 
                 <div class="col">
-                        {{ object.retail_price }} ₼
+                    {% if object.retail_price %}
+                    {{ object.retail_price }} ₼
+                    {% else %}
+                    ---
+                    {% endif %}
                 </div>
             </div>
 
@@ -58,9 +71,32 @@
                 </div>
 
                 <div class="col">
+                    {% if object.weight %}
                     {{ object.weight }} kg
+                    {% else %}
+                    ---
+                    {% endif %}
                 </div>
             </div>
+
+            <hr>
+            <div class="row p-1">
+
+                <div class="col">
+                    Store stock
+                </div>
+
+                <div class="col">
+                    {% if object.stock.all %}
+                    {% for i in object.stock.all %}
+                    {{ i }}
+                    {% endfor %}
+                    {% else %}
+                    ---
+                    {% endif %}
+                </div>
+            </div>
+
 
             <hr>
             <div class="row p-1">

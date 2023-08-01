@@ -9,4 +9,4 @@ class CountGoods(models.Model):
     cost_price = models.PositiveSmallIntegerField()
 
     def __str__(self):
-        return self.name
+        return self.good_id

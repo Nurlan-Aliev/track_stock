@@ -6,11 +6,12 @@
 
 <h1 class="my-4">List of goods</h1>
 
-<a href="{% url 'create_good' %}">create good</a>
+<a class="text-black text-decoration-none" href="{% url 'create_good' %}">Create good</a> <a class="d-flex justify-content-end text-black text-decoration-none" href="{% url 'create_stock' %}">Create stock</a>
+
+
 
 <table class="table table-striped">
     <tr>
-
         <th>Name</th>
         <th>Cost price</th>
         <th>Wholesale price</th>
@@ -20,10 +21,30 @@
     {% for good in object_list %}
     <tr>
         <td><a href="{% url 'good_card' pk=good.id %}">{{ good }}</a></td>
-        <td>{{ good.cost_price }} ¥</td>
-        <td>{{ good.wholesale_price }} ₼</td>
-        <td>{{ good.retail_price }} ₼</td>
-        <td>{{ good.weight }} kg</td>
+        <td>
+            {% if good.cost_price %}
+            {{ good.cost_price }} ¥
+            {% else %}
+            {% endif %}
+        </td>
+        <td>
+            {% if good.wholesale_price %}
+            {{ good.wholesale_price }} ₼
+            {% else %}
+            {% endif %}
+        </td>
+        <td>
+            {% if good.retail_price %}
+            {{ good.retail_price }} ₼
+            {% else %}
+            {% endif %}
+        </td>
+        <td>
+            {% if good.weight %}
+            {{ good.weight }} kg
+            {% else %}
+            {% endif %}
+        </td>
     </tr>
     {% endfor %}
 </table>

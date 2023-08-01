@@ -1,5 +1,6 @@
 from django import forms
 from goods_map.goods.models import GoodsModel
+from goods_map.stock.models import StockModel
 
 
 class GoodsForm(forms.ModelForm):
@@ -11,6 +12,7 @@ class GoodsForm(forms.ModelForm):
                    'placeholder': 'Name'}))
     cost_price = forms.IntegerField(
         label='Cost price',
+        required=False,
         widget=forms.TextInput(
             attrs={'id': 'id_cost_price',
                    'class': 'form-control mb-3',
@@ -37,6 +39,12 @@ class GoodsForm(forms.ModelForm):
                    'class': 'form-control mb-3',
                    'placeholder': 'Write weight of bag'}))
 
+    stock = forms.ModelMultipleChoiceField(
+        queryset=StockModel.objects.all(), label='Stock',
+        required=False,
+        widget=forms.SelectMultiple(attrs={'id': 'id_labels',
+                                           'class': 'form-select mb-3'}))
+
     class Meta:
         model = GoodsModel
-        fields = ['name', 'cost_price', 'wholesale_price', 'retail_price', 'weight']
+        fields = ['name', 'cost_price', 'wholesale_price', 'retail_price', 'weight', 'stock']

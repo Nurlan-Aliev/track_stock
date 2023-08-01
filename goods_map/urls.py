@@ -21,7 +21,7 @@ from goods_map.views import HomeView
 
 urlpatterns = [
     path('', HomeView.as_view()),
-    # path('stock/', include('goods_map.stock.urls')),
+    path('stock/', include('goods_map.stock.urls')),
     path('count/', include('goods_map.count.urls')),
     path('goods/', include('goods_map.goods.urls')),
     path('admin/', admin.site.urls),
