@@ -6,8 +6,8 @@
 
 
 <div class="card">
-    <div class="card-header bg-light text-white">
-        <h1 class="mb-4">{{ good }}</h1>
+    <div class="card-header bg-light text-black">
+        <h1 class="mb-4">{{ object }}</h1>
     </div>
 
     <h2>Сюда вставлю картинку когда разберусь как это сделать, а пока только тест</h2>
@@ -16,7 +16,7 @@
 
     <div class="card-body bg-light">
         <p>
-            {{ good.wholesale_price }}
+            {{ object.wholesale_price }}
         </p>
         <hr>
 
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="col">
-                    {{ good.cost_price }}
+                    {{ object.cost_price }}
                 </div>
             </div>
 
@@ -39,29 +39,61 @@
                 </div>
 
                 <div class="col">
-                        {{ good.retail_price }}
+                        {{ object.retail_price }}
                 </div>
             </div>
 
             <div class="row p-1">
 
                 <div class="col">
-                    weight
+                    Weight
                 </div>
 
                 <div class="col">
-                    {{ good.weight }}
+                    {{ object.weight }}
                 </div>
             </div>
 
+            <hr>
+            <div class="row p-1">
+
+                <div class="col">
+                    Order info
+                </div>
+
+                <div class="col">
+                    <dl class="row p-1">
+                        <dt class="col">Date</dt>
+                        <dt class="col"> Count</dt>
+                        <dt class="col">Cost price</dt>
+                        <dt class="col"></dt>
+                    </dl>
 
 
+
+                    {% for i in object.countgoods_set.all %}
+                    <dl class="row p-0.5">
+                        <dd class="col">{{ i.datetime }}</dd>
+                        <dd class="col">{{ i.count }}</dd>
+                        <dd class="col">{{ i.cost_price }}</dd>
+                        <dd class="col">
+                            <a href="{% url 'update_count' pk=object.id %}">Update</a>
+                            <a href="{% url 'update_count' pk=object.id %}">Delete</a>
+                        </dd>
+                    </dl>
+                    {% endfor %}
+                </div>
+            </div>
 
             <div>
-                <a href="{% url 'update_good' pk=good.id %}">Update</a>
+                <a href="{% url 'add_goods' pk=object.id %}">Add count</a>
+                <br>
+
+                <a href="{% url 'update_good' pk=object.id %}">Update</a>
 
                 <br>
-                <a href="{% url 'delete_good' pk=good.id %}">Delete</a>
+                <a href="{% url 'delete_good' pk=object.id %}">Delete</a>
+
 
             </div>
         </div>

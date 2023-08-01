@@ -40,4 +40,3 @@ class GoodsForm(forms.ModelForm):
     class Meta:
         model = GoodsModel
         fields = ['name', 'cost_price', 'wholesale_price', 'retail_price', 'weight']
-

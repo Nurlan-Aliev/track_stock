@@ -4,10 +4,10 @@
 
 {% block main %}
 
-<h1 class="my-4">Create Good</h1>
+<h1 class="my-4">{{ title }}</h1>
 <form method="post" class="form">
   {% csrf_token %}
   {% bootstrap_form form %}
-  <button type="submit" class="btn btn-primary mb-3">Create</button>
+  <button type="submit" class="btn btn-primary mb-3">{{ button }}</button>
 </form>
 {% endblock%}
