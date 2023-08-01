@@ -15,9 +15,6 @@
 
 
     <div class="card-body bg-light">
-        <p>
-            {{ object.wholesale_price }}
-        </p>
         <hr>
 
         <div class="container">
@@ -28,7 +25,18 @@
                 </div>
 
                 <div class="col">
-                    {{ object.cost_price }}
+                    {{ object.cost_price }} ¥
+                </div>
+            </div>
+
+            <div class="row p-1">
+
+                <div class="col">
+                    Wholesale price
+                </div>
+
+                <div class="col">
+                    {{ object.wholesale_price }} ₼
                 </div>
             </div>
 
@@ -39,7 +47,7 @@
                 </div>
 
                 <div class="col">
-                        {{ object.retail_price }}
+                        {{ object.retail_price }} ₼
                 </div>
             </div>
 
@@ -50,7 +58,7 @@
                 </div>
 
                 <div class="col">
-                    {{ object.weight }}
+                    {{ object.weight }} kg
                 </div>
             </div>
 
@@ -75,7 +83,7 @@
                     <dl class="row p-0.5">
                         <dd class="col">{{ i.datetime }}</dd>
                         <dd class="col">{{ i.count }}</dd>
-                        <dd class="col">{{ i.cost_price }}</dd>
+                        <dd class="col">{{ i.cost_price }} ¥</dd>
                         <dd class="col">
                             <a href="{% url 'update_count' pk=object.id %}">Update</a>
                             <a href="{% url 'update_count' pk=object.id %}">Delete</a>

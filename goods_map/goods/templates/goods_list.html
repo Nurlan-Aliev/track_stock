@@ -20,10 +20,10 @@
     {% for good in object_list %}
     <tr>
         <td><a href="{% url 'good_card' pk=good.id %}">{{ good }}</a></td>
-        <td>{{ good.cost_price }}</td>
-        <td>{{ good.wholesale_price }}</td>
-        <td>{{ good.retail_price }}</td>
-        <td>{{ good.weight }}</td>
+        <td>{{ good.cost_price }} ¥</td>
+        <td>{{ good.wholesale_price }} ₼</td>
+        <td>{{ good.retail_price }} ₼</td>
+        <td>{{ good.weight }} kg</td>
     </tr>
     {% endfor %}
 </table>
