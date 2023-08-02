@@ -1,4 +1,5 @@
 import math
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (ListView,
                                   CreateView,
                                   UpdateView,
@@ -9,12 +10,12 @@ from goods_map.goods.forms import GoodsForm
 from django.urls import reverse_lazy
 
 
-class GoodsList(ListView):
+class GoodsList(LoginRequiredMixin, ListView):
     template_name = 'goods_list.html'
     model = GoodsModel
 
 
-class CreateGood(CreateView):
+class CreateGood(LoginRequiredMixin, CreateView):
     template_name = 'edit.html'
     model = GoodsModel
     form_class = GoodsForm
@@ -34,7 +35,7 @@ class CreateGood(CreateView):
         return super().form_valid(form)
 
 
-class UpdateGood(UpdateView):
+class UpdateGood(LoginRequiredMixin, UpdateView):
     template_name = 'edit.html'
     model = GoodsModel
     form_class = GoodsForm
@@ -42,12 +43,12 @@ class UpdateGood(UpdateView):
     extra_context = {'title': 'Update Good', 'button': 'Update'}
 
 
-class DeleteGood(DeleteView):
+class DeleteGood(LoginRequiredMixin, DeleteView):
     template_name = 'delete.html'
     model = GoodsModel
     success_url = reverse_lazy('good_list')
 
 
-class GoodCard(DetailView):
+class GoodCard(LoginRequiredMixin, DetailView):
     template_name = 'good_card.html'
     model = GoodsModel
