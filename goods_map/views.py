@@ -4,7 +4,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from goods_map.forms import LoginForm
 from django_filters.views import FilterView
 from goods_map.forms import FilterForm
-from django.views.generic import DetailView
 
 
 class HomeView(LoginRequiredMixin, FilterView):

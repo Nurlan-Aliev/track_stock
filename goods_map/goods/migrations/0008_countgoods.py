@@ -14,11 +14,16 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CountGoods',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('datetime', models.DateTimeField(auto_now_add=True)),
                 ('count', models.PositiveSmallIntegerField()),
                 ('cost_price', models.PositiveSmallIntegerField()),
-                ('good_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='goods.goodsmodel')),
+                ('good_id', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='goods.goodsmodel')),
             ],
         ),
     ]
