@@ -1,15 +1,15 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views import View
 from django.contrib.auth.views import LoginView, LogoutView
 from goods_map.forms import LoginForm
+from django_filters.views import FilterView
+from goods_map.forms import FilterForm
+from django.views.generic import DetailView
 
 
-class HomeView(LoginRequiredMixin, View):
-
-    def get(self, request):
-        return redirect(reverse_lazy('good_list'))
+class HomeView(LoginRequiredMixin, FilterView):
+    template_name = 'index.html'
+    filterset_class = FilterForm
 
 
 class Login(LoginView):

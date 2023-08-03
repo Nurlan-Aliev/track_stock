@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+
 
 {% block main %}
-<h1>hello Nurlan, it's your proga</h1>
+<div class="search3__inner">
+    <form action="{% url 'good_list' %}" method="get">
+        {% bootstrap_form filter.form size='small' %}
+        <button type="submit" class="btn btn-primary mb-3">Send</button>
+    </form>
+</div>
 {% endblock %}
-

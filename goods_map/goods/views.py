@@ -1,18 +1,21 @@
 import math
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import (ListView,
-                                  CreateView,
+from django.views.generic import (CreateView,
                                   UpdateView,
                                   DeleteView,
                                   DetailView)
+
+from goods_map.forms import FilterForm
 from goods_map.goods.models import GoodsModel
 from goods_map.goods.forms import GoodsForm
 from django.urls import reverse_lazy
+from django_filters.views import FilterView
 
 
-class GoodsList(LoginRequiredMixin, ListView):
+class GoodsList(LoginRequiredMixin, FilterView):
     template_name = 'goods_list.html'
     model = GoodsModel
+    filterset_class = FilterForm
 
 
 class CreateGood(LoginRequiredMixin, CreateView):
