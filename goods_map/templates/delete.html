@@ -7,9 +7,13 @@
         {{ object }}
     </h1>
     <p>Are you sure you want to delete?</p>
-        <form method="post">
+
+    <form method="post" class="form-check form-check-inline">
         {% csrf_token %}
-            <button class="btn btn-danger mb-3" type="submit">'Yes, delete'</button>
+        <button class="btn btn-danger mb-3" type="submit">Yes, delete</button>
+    </form>
+    <form action="{% url 'good_list' %}" class="form-check form-check-inline" method="get">
+        <button class="btn btn-secondary mb-3" type="submit">No, return</button>
     </form>
 </div>
 {% endblock %}
