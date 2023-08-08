@@ -10,7 +10,7 @@ class GoodsForm(forms.ModelForm):
             attrs={'id': 'id_name',
                    'class': 'form-control mb-3',
                    'placeholder': 'Name'}))
-    images = forms.ImageField(localize=2)
+    images = forms.ImageField(localize=2, required=False)
     cost_price = forms.IntegerField(
         label='Cost price',
         required=False,
