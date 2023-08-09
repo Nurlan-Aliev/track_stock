@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Aliev Nurlan <nualiev420@gmail.com>"]
 readme = "README.md"
-packages = [{include = "track_stock"}]
+packages = [{include = "goods_map"}]
 
 [tool.poetry.dependencies]
 python = "^3.10.1"
