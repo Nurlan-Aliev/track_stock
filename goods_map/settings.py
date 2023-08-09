@@ -34,7 +34,7 @@ DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://trackstock-production.up.railway.app/'
+    'trackstock-production.up.railway.app'
 ]
 
 
