@@ -10,7 +10,7 @@
 <a class="text-black" href="{% url 'create_good' %}">Create good</a>
 
 
-<a class="container">
+<div class="container">
 {% for good in object_list %}
 
 
@@ -83,6 +83,7 @@
         </div>
     </div>
 </div></a>
+</div>
     <hr>
 {% endfor %}
 {% endblock%}
