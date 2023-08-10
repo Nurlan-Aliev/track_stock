@@ -16,7 +16,6 @@
 
   <a href="{% url 'good_card' pk=good.id %}" class="text-black text-decoration-none"><div class="row align-items-center">
     <div class="col" >
-        <div>{{ good.images.url }}</div>
         <img src="{{ good.images.url }}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
     </div>
     <div class="col">
