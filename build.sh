@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# exit on error
-set -o errexit
-
-poetry install
 
 make migrate
+
+python3 manage.py collectstatic
