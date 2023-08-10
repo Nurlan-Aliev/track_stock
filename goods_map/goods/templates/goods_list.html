@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
+{% load static %}
 
 
 {% block main %}
@@ -16,7 +17,11 @@
 
   <a href="{% url 'good_card' pk=good.id %}" class="text-black text-decoration-none"><div class="row align-items-center">
     <div class="col" >
-        <img src="{{ good.images.url }}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
+        {% if good.images %}
+            <img src="{{ good.images.url }}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
+        {% else %}
+            <img src="{% static 'goods_map/image_not_found.png' %}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
+        {% endif %}
     </div>
     <div class="col">
         <div class="row p-1">
