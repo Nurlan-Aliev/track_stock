@@ -10,4 +10,4 @@ link:
 
 build:
 	make migrate
-	python3 manage.py collectstatic
+	python3 manage.py collectstatic --noinput
