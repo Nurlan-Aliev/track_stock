@@ -17,7 +17,9 @@
             <img src="{{ object.images.url }}" class="rounded d-block mx-auto" alt="Responsive image" style="max-height:250px">
         </a>
         {% else %}
+        <div>
             <img src="{% static 'goods_map/image_not_found.png' %}" class="rounded d-block mx-auto" alt="Responsive image" style="max-height:250px">
+        </div>
         {% endif %}
     </div>
 
