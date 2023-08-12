@@ -11,6 +11,8 @@ from goods_map.goods.forms import GoodsForm
 from django.urls import reverse_lazy
 from django_filters.views import FilterView
 
+from goods_map.mixin import AdminMixin
+
 
 class GoodsList(LoginRequiredMixin, FilterView):
     template_name = 'goods_list.html'
@@ -18,7 +20,7 @@ class GoodsList(LoginRequiredMixin, FilterView):
     filterset_class = FilterForm
 
 
-class CreateGood(LoginRequiredMixin, CreateView):
+class CreateGood(AdminMixin, CreateView):
     template_name = 'edit.html'
     model = GoodsModel
     form_class = GoodsForm
@@ -38,7 +40,7 @@ class CreateGood(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class UpdateGood(LoginRequiredMixin, UpdateView):
+class UpdateGood(AdminMixin, UpdateView):
     template_name = 'edit.html'
     model = GoodsModel
     form_class = GoodsForm
@@ -46,7 +48,7 @@ class UpdateGood(LoginRequiredMixin, UpdateView):
     extra_context = {'title': 'Update Good', 'button': 'Update'}
 
 
-class DeleteGood(LoginRequiredMixin, DeleteView):
+class DeleteGood(AdminMixin, DeleteView):
     template_name = 'delete.html'
     model = GoodsModel
     success_url = reverse_lazy('good_list')

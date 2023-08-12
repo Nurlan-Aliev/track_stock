@@ -138,17 +138,17 @@
                 </div>
             </div>
 
-            <div>
-                <a href="{% url 'add_goods' pk=object.id %}">Add count</a>
-                <br>
+            {% if request.user.is_superuser %}
+                <div>
+                    <a href="{% url 'add_goods' pk=object.id %}">Add count</a>
+                    <br>
 
-                <a href="{% url 'update_good' pk=object.id %}">Update</a>
+                    <a href="{% url 'update_good' pk=object.id %}">Update</a>
 
-                <br>
-                <a href="{% url 'delete_good' pk=object.id %}">Delete</a>
-
-
-            </div>
+                    <br>
+                    <a href="{% url 'delete_good' pk=object.id %}">Delete</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

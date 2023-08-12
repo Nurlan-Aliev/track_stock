@@ -5,9 +5,10 @@ from goods_map.count.forms import CountForm
 from goods_map.count.models import CountGoods
 from django.urls import reverse_lazy
 from goods_map.goods.models import GoodsModel
+from goods_map.mixin import AdminMixin
 
 
-class AddGoodsView(LoginRequiredMixin, CreateView):
+class AddGoodsView(AdminMixin, CreateView):
     template_name = 'edit.html'
     model = CountGoods
     form_class = CountForm
@@ -21,7 +22,7 @@ class AddGoodsView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class UpdateCount(LoginRequiredMixin, UpdateView):
+class UpdateCount(AdminMixin, UpdateView):
     template_name = 'edit.html'
     model = CountGoods
     form_class = CountForm
