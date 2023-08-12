@@ -3,10 +3,25 @@
 
 
 {% block main %}
+{% if request.user.is_superuser %}
+    <div class="btn-toolbar d-flex justify-content-end" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+            <form action="{% url 'create_good' %}" method="get">
+                <button type="submit" class="btn btn-success mb-3">Create a product</button>
+            </form>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+            <form action="{% url 'create_stock' %}" method="get">
+                <button type="submit" class="btn btn-success mb-3">Create stock</button>
+            </form>
+        </div>
+    </div>
+{% endif %}
+
 <div class="search3__inner">
     <form action="{% url 'good_list' %}" method="get">
         {% bootstrap_form filter.form size='small' %}
-        <button type="submit" class="btn btn-primary mb-3">Send</button>
+        <button type="submit" class="btn btn-primary mb-3 form-control-lg">Send</button>
     </form>
 </div>
 {% endblock %}

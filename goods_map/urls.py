@@ -25,7 +25,7 @@ from . import settings
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home_page'),
-    # path('stock/', include('goods_map.stock.urls')),
+    path('stock/', include('goods_map.stock.urls')),
     path('count/', include('goods_map.count.urls')),
     path('goods/', include('goods_map.goods.urls')),
     path('login/', views.Login.as_view(), name='login'),

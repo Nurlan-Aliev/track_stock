@@ -29,7 +29,7 @@ class FilterForm(django_filters.FilterSet):
                                      label='Name',
                                      widget=forms.TextInput(
                                          attrs={'id': 'id_status',
-                                                'class': 'mb-3'}))
+                                                'class': 'mb-3 border-warning border-3 form-control-lg'}))
 
     class Meta:
         model = GoodsModel
