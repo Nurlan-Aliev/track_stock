@@ -11,11 +11,12 @@
         <h1 class="mb-4">{{ object }}</h1>
     </div>
 
+    <a href="{% url 'add_image' pk=object.id %}">Add Foto</a>
     <div class="col" >
-        {% if object.images %}
-        <a href="{{ object.images.url }}">
-            <img src="{{ object.images.url }}" class="rounded d-block mx-auto" alt="Responsive image" style="max-height:250px">
-        </a>
+        {% if object.imagemodel_set.all %}
+        {% for i in object.imagemodel_set.all %}
+            <img src="{{ i.images.url }}" class="rounded d-block mx-auto" alt="Responsive image" style="max-height:250px">
+        {% endfor %}
         {% else %}
         <div>
             <img src="{% static 'goods_map/image_not_found.png' %}" class="rounded d-block mx-auto" alt="Responsive image" style="max-height:250px">

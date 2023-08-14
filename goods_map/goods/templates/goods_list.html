@@ -14,8 +14,11 @@
 
   <a href="{% url 'good_card' pk=good.id %}" class="text-black text-decoration-none"><div class="row align-items-center">
     <div class="col" >
-        {% if good.images %}
-            <img src="{{ good.images.url }}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
+        {% if good.imagemodel_set.all %}
+        {% for i in good.imagemodel_set.all %}
+            <img src="{{ i.images.url }}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
+
+        {% endfor %}
         {% else %}
             <img src="{% static 'goods_map/image_not_found.png' %}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
         {% endif %}
