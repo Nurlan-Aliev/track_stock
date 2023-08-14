@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'goods_map.stock',
     'goods_map.goods',
     'goods_map.count',
+    'goods_map.gallery',
+
 ]
 
 MIDDLEWARE = [

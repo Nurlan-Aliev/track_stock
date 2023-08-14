@@ -6,8 +6,8 @@ from django.views.generic import (CreateView,
                                   DetailView)
 
 from goods_map.forms import FilterForm
-from goods_map.goods.models import GoodsModel, ImageModel
-from goods_map.goods.forms import GoodsForm, ImageForm
+from goods_map.goods.models import GoodsModel
+from goods_map.goods.forms import GoodsForm
 from django.urls import reverse_lazy
 from django_filters.views import FilterView
 
@@ -57,17 +57,3 @@ class DeleteGood(AdminMixin, DeleteView):
 class GoodCard(LoginRequiredMixin, DetailView):
     template_name = 'good_card.html'
     model = GoodsModel
-
-
-class AddImageView(LoginRequiredMixin, CreateView):
-    template_name = 'edit.html'
-    model = ImageModel
-    form_class = ImageForm
-    success_url = reverse_lazy('good_list')
-    extra_context = {'title': 'Add foto', 'button': 'ADD'}
-
-    def form_valid(self, form):
-        product_id = self.kwargs.get('pk')
-        form.instance.product_id = GoodsModel.objects.get(id=product_id)
-        form.save()
-        return super().form_valid(form)

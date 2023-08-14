@@ -1,5 +1,5 @@
 from django import forms
-from goods_map.goods.models import GoodsModel, ImageModel
+from goods_map.goods.models import GoodsModel
 from goods_map.stock.models import StockModel
 
 
@@ -48,11 +48,3 @@ class GoodsForm(forms.ModelForm):
     class Meta:
         model = GoodsModel
         fields = ['name', 'cost_price', 'wholesale_price', 'retail_price', 'weight', 'stock']
-
-
-class ImageForm(forms.ModelForm):
-    images = forms.ImageField(localize=2, required=False)
-
-    class Meta:
-        model = ImageModel
-        fields = ['images']
