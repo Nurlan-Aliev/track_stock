@@ -15,7 +15,9 @@
     <div class="col" >
         {% if object.imagemodel_set.all %}
         {% for i in object.imagemodel_set.all %}
+        <a href="{{ i.images.url }}">
             <img src="{{ i.images.url }}" class="rounded d-block mx-auto" alt="Responsive image" style="max-height:250px">
+        </a>
         {% endfor %}
         {% else %}
         <div>

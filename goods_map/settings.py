@@ -31,10 +31,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
+# DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'trackstock-production.up.railway.app'
+    os.getenv('LINK')
 ]
 
 
