@@ -3,6 +3,5 @@ __pycache__/
 .idea
 .pytest_cache/
 /migrations/
-staticfiles/
 media/images/
 media/
