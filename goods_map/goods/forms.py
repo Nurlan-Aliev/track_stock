@@ -1,6 +1,6 @@
 from django import forms
 from goods_map.goods.models import GoodsModel
-from goods_map.stock.models import StockModel
+from goods_map.stock.models import StockModel, MarketModel
 
 
 class GoodsForm(forms.ModelForm):
@@ -39,6 +39,12 @@ class GoodsForm(forms.ModelForm):
                    'class': 'form-control mb-3',
                    'placeholder': 'Write weight of bag'}))
 
+    market = forms.ModelMultipleChoiceField(
+        queryset=MarketModel.objects.all(), label='Market',
+        required=False,
+        widget=forms.SelectMultiple(attrs={'id': 'id_market',
+                                           'class': 'form-select mb-3'}))
+
     stock = forms.ModelMultipleChoiceField(
         queryset=StockModel.objects.all(), label='Stock',
         required=False,
@@ -47,4 +53,4 @@ class GoodsForm(forms.ModelForm):
 
     class Meta:
         model = GoodsModel
-        fields = ['name', 'cost_price', 'wholesale_price', 'retail_price', 'weight', 'stock']
+        fields = ['name', 'cost_price', 'wholesale_price', 'retail_price', 'weight', 'market', 'stock']

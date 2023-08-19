@@ -93,7 +93,6 @@
 
             <hr>
             <div class="row p-1">
-
                 <div class="col">
                     Store stock
                 </div>
@@ -101,6 +100,21 @@
                 <div class="col">
                     {% if object.stock.all %}
                     {% for i in object.stock.all %}
+                    {{ i }}
+                    {% endfor %}
+                    {% else %}
+                    ---
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="col">
+                    Market stock
+                </div>
+
+                <div class="col">
+                    {% if object.market.all %}
+                    {% for i in object.market.all %}
                     {{ i }}
                     {% endfor %}
                     {% else %}

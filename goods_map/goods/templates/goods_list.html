@@ -16,7 +16,7 @@
     <div class="col" >
         {% if good.imagemodel_set.all %}
         {% for i in good.imagemodel_set.all %}
-            <img src="{{ i.images.url }}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
+            <img src="{{ i.images.url }}" class="rounded float-left" alt="{{ i.images }}" style="max-height:150px">
 
         {% endfor %}
         {% else %}
