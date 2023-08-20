@@ -11,7 +11,7 @@ class StockHome(LoginRequiredMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['market'] = MarketModel.objects.all()
+        context['market'] = MarketModel
         return context
 
 
