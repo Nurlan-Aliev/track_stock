@@ -7,7 +7,7 @@ from django.views.generic import (CreateView,
 
 from goods_map.forms import FilterForm
 from goods_map.goods.models import GoodsModel
-from goods_map.goods.forms import GoodsForm
+from goods_map.goods.forms import GoodsForm, Storage
 from django.urls import reverse_lazy
 from django_filters.views import FilterView
 
@@ -57,3 +57,12 @@ class DeleteGood(AdminMixin, DeleteView):
 class GoodCard(LoginRequiredMixin, DetailView):
     template_name = 'good_card.html'
     model = GoodsModel
+
+
+class UpdateStorage(LoginRequiredMixin, UpdateView):
+    template_name = 'edit.html'
+    model = GoodsModel
+    form_class = Storage
+    extra_context = {'title': 'Update Storage', 'button': 'Update'}
+
+

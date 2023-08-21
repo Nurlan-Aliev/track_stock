@@ -43,6 +43,17 @@ class GoodsForm(forms.ModelForm):
                    'class': 'form-control mb-3',
                    'placeholder': 'Write weight of bag'}))
 
+    class Meta:
+        model = GoodsModel
+        fields = ['name',
+                  'cost_price',
+                  'wholesale_price',
+                  'retail_price',
+                  'weight'
+                  ]
+
+
+class Storage(forms.ModelForm):
     store_hall = forms.ModelChoiceField(
         queryset=models.StoreHall.objects.all(), label='Store hall',
         required=False,
@@ -72,13 +83,9 @@ class GoodsForm(forms.ModelForm):
 
     class Meta:
         model = GoodsModel
-        fields = ['name',
-                  'cost_price',
-                  'wholesale_price',
-                  'retail_price',
-                  'weight',
-                  'store_hall',
-                  'store_back',
-                  'store_up',
-                  'stock'
-                  ]
+        fields = [
+            'store_hall',
+            'store_back',
+            'store_up',
+            'stock'
+            ]

@@ -8,10 +8,26 @@
 
 <div class="card">
     <div class="card-header bg-light text-black">
-        <h1 class="mb-4">{{ object }}</h1>
+        <div class="nav-item d-flex justify-content-sm-between w-100">
+            <div class="d-flex">
+                <h1 class="mb-4">{{ object }}</h1>
+            </div>
+            <div class="d-flex row p-1">
+                <button class="btn btn-primary mb-1">
+                    <a class="text-white text-decoration-none" href="{% url 'update_good' pk=object.id %}">Update</a>
+                </button>
+                <button class="btn btn-danger mb-1">
+                    <a class="text-white text-decoration-none" href="{% url 'delete_good' pk=object.id %}">Delete</a>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <a href="{% url 'add_image' pk=object.id %}">Add Foto</a>
+    <div>
+        <button class="btn btn-success mb-1">
+            <a class="text-white text-decoration-none" href="{% url 'add_image' pk=object.id %}">Add Foto</a>
+        </button>
+    </div>
     <div class="col" >
         {% if object.imagemodel_set.all %}
         {% for i in object.imagemodel_set.all %}
@@ -139,6 +155,11 @@
                     {% endif %}
                 </div>
             </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary mb-3">
+                    <a class="text-white text-decoration-none" href="{% url 'add_storage' object.id %}">Add storage</a>
+                </button>
+            </div>
 
 
 
@@ -174,15 +195,12 @@
             </div>
 
             {% if request.user.is_superuser %}
-                <div>
-                    <a href="{% url 'add_goods' pk=object.id %}">Add count</a>
-                    <br>
-
-                    <a href="{% url 'update_good' pk=object.id %}">Update</a>
-
-                    <br>
-                    <a href="{% url 'delete_good' pk=object.id %}">Delete</a>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary mb-3">
+                        <a class="text-white text-decoration-none" href="{% url 'add_goods' pk=object.id %}">Add count</a>
+                    </button>
                 </div>
+
             {% endif %}
         </div>
     </div>

@@ -7,5 +7,6 @@ urlpatterns = [
     path('create/', views.CreateGood.as_view(), name='create_good'),
     path('<int:pk>/update/', views.UpdateGood.as_view(), name='update_good'),
     path('<int:pk>/delete/', views.DeleteGood.as_view(), name='delete_good'),
+    path('<int:pk>/add_storage/', views.UpdateStorage.as_view(), name='add_storage'),
     path('<int:pk>/', views.GoodCard.as_view(), name='good_card'),
 ]
