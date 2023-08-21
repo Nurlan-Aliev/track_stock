@@ -39,11 +39,20 @@ class GoodsForm(forms.ModelForm):
                    'class': 'form-control mb-3',
                    'placeholder': 'Write weight of bag'}))
 
-    market = forms.ModelMultipleChoiceField(
+    # market = forms.ModelMultipleChoiceField(
+    #     queryset=MarketModel.objects.all(), label='Market',
+    #     required=False,
+    #     widget=forms.SelectMultiple(attrs={'id': 'id_market',
+    #                                        'class': 'form-select mb-3'}))
+
+    market = forms.ModelChoiceField(
         queryset=MarketModel.objects.all(), label='Market',
         required=False,
-        widget=forms.SelectMultiple(attrs={'id': 'id_market',
-                                           'class': 'form-select mb-3'}))
+
+        widget=forms.Select(
+            attrs={'id': 'id_market',
+
+                   'class': 'form-select mb-3'}))
 
     stock = forms.ModelMultipleChoiceField(
         queryset=StockModel.objects.all(), label='Stock',

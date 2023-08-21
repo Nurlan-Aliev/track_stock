@@ -68,17 +68,17 @@
         <div class="row p-1">
 
             <div class="col">
-                Store stock
+                Market stock
             </div>
 
             <div class="col">
-                {% if good.stock.all %}
-                {% for i in good.stock.all %}
-                {{ i }}
-                {% endfor %}
-                {% else %}
-                ---
-                {% endif %}
+                {% if good.market.all %}
+                    {% for i in good.market.all %}
+                    {{ i }}
+                    {% endfor %}
+                    {% else %}
+                    ---
+                    {% endif %}
             </div>
         </div>
     </div>
