@@ -92,6 +92,38 @@
             </div>
 
             <hr>
+
+            <div class="row p-1">
+                <div class="col">
+                    Market stock
+                </div>
+
+                <div class="col">
+                    {% if object.store_hall or object.store_back or object.store_up %}
+                        <div class="col">
+                            {% if object.store_hall %}
+                                {{ object.store_hall }}
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            {% if object.store_back %}
+                                {{ object.store_back }}
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            {% if object.store_up %}
+                                {{ object.store_up }}
+                            {% endif %}
+                        </div>
+
+                    {% else %}
+                    ---
+                    {% endif %}
+                    <hr>
+                </div>
+            </div>
+
+
             <div class="row p-1">
                 <div class="col">
                     Store stock
@@ -107,21 +139,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="row p-1">
-                <div class="col">
-                    Market stock
-                </div>
 
-                <div class="col">
-                    {% if object.market.all %}
-                    {% for i in object.market.all %}
-                    {{ i }}
-                    {% endfor %}
-                    {% else %}
-                    ---
-                    {% endif %}
-                </div>
-            </div>
 
 
             <hr>

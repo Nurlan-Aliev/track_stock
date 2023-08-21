@@ -3,31 +3,16 @@
 
 
 {% block main %}
-
-{% if request.user.is_superuser %}
-<div class="btn-toolbar d-flex justify-content-end" aria-label="Toolbar with button groups">
-    <div class="btn-group me-2" role="group" aria-label="First group">
-        <form action="{% url 'create_market' %}" method="get">
-            <button type="submit" class="btn btn-success mb-3">Create market</button>
-        </form>
-    </div>
-    <div class="btn-group me-2" role="group" aria-label="Second group">
-        <form action="{% url 'create_stock' %}" method="get">
-            <button type="submit" class="btn btn-success mb-3">Create stock</button>
-        </form>
-    </div>
-</div>
-{% endif %}
-
 <h1>Stock</h1>
 
 
-<h2>Goods list in market</h2>
+{% if store_hall %}
+<h2>Goods list in Store</h2>
 <ul>
-    {% for i in market %}
-    <li>{{ i }}</li>
+    {% for storage in store_hall %}
+    <li>{{ storage }}</li>
         <ul>
-            {% for w in i.goodsmodel_set.all %}
+            {% for product in storage.goodsmodel_set.all %}
             <li>
                 <a href="{% url 'good_card' w.id %}"> {{ w }}</a>
             </li>
@@ -35,6 +20,42 @@
         </ul>
     {% endfor %}
 </ul>
+{% endif %}
+
+
+{% if store_hall %}
+<h2>Goods list in Back</h2>
+<ul>
+    {% for storage in store_back %}
+    <li>{{ storage }}</li>
+        <ul>
+            {% for product in storage.goodsmodel_set.all %}
+            <li>
+                <a href="{% url 'good_card' w.id %}"> {{ w }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% if store_hall %}
+<h2>Goods list in second floor</h2>
+<ul>
+    {% for storage in store_up %}
+    <li>{{ storage }}</li>
+        <ul>
+            {% for product in storage.goodsmodel_set.all %}
+            <li>
+                <a href="{% url 'good_card' w.id %}"> {{ w }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>
+{% endif %}
+
 
 <h2>Goods list in stock</h2>
 <ul>

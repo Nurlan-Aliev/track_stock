@@ -72,13 +72,25 @@
             </div>
 
             <div class="col">
-                {% if good.market.all %}
-                    {% for i in good.market.all %}
-                    {{ i }}
-                    {% endfor %}
-                    {% else %}
-                    ---
+                {% if good.store_hall or good.store_back or good.store_up %}
+                <div class="col">
+                    {% if good.store_hall %}
+                        {{ good.store_hall }}
                     {% endif %}
+                </div>
+                <div class="col">
+                    {% if good.store_back %}
+                        {{ good.store_back }}
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {% if good.store_up %}
+                        {{ good.store_up }}
+                    {% endif %}
+                </div>
+                {% else %}
+                ---
+                {% endif %}
             </div>
         </div>
     </div>
