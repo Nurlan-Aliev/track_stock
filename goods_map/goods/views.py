@@ -24,7 +24,7 @@ class CreateGood(AdminMixin, CreateView):
     template_name = 'edit.html'
     model = GoodsModel
     form_class = GoodsForm
-    success_url = reverse_lazy('good_list')
+    success_url = reverse_lazy('home_page')
     extra_context = {'title': 'Create Good', 'button': 'Create'}
 
     def form_valid(self, form):
@@ -44,7 +44,7 @@ class UpdateGood(AdminMixin, UpdateView):
     template_name = 'edit.html'
     model = GoodsModel
     form_class = GoodsForm
-    success_url = reverse_lazy('good_list')
+    success_url = reverse_lazy('home_page')
     extra_context = {'title': 'Update Good', 'button': 'Update'}
 
 

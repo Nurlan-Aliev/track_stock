@@ -21,7 +21,7 @@ class GoodsForm(forms.ModelForm):
 
     wholesale_price = forms.IntegerField(
         label='Wholesale price',
-        required=False,
+        # required=False,
         widget=forms.TextInput(
             attrs={'id': 'id_wholesale_price',
                    'class': 'form-control mb-3',
