@@ -42,6 +42,32 @@ class GoodsForm(forms.ModelForm):
             attrs={'id': 'id_retail_price',
                    'class': 'form-control mb-3',
                    'placeholder': 'Write weight of bag'}))
+    store_hall = forms.ModelChoiceField(
+        queryset=models.StoreHall.objects.all(), label='Store hall',
+        required=False,
+        widget=forms.Select(
+            attrs={'id': 'id_store_hall',
+                   'class': 'form-select mb-3'}))
+
+    store_back = forms.ModelChoiceField(
+        queryset=models.StoreBack.objects.all(), label='Store back',
+        required=False,
+        widget=forms.Select(
+            attrs={'id': 'id_store_back',
+                   'class': 'form-select mb-3'}))
+
+    store_up = forms.ModelChoiceField(
+        queryset=models.StoreUp.objects.all(), label='Store up',
+        required=False,
+        widget=forms.Select(
+            attrs={'id': 'id_store_up',
+                   'class': 'form-select mb-3'}))
+
+    stock = forms.ModelMultipleChoiceField(
+        queryset=models.StockModel.objects.all(), label='Stock',
+        required=False,
+        widget=forms.SelectMultiple(attrs={'id': 'id_labels',
+                                           'class': 'form-select mb-3'}))
 
     class Meta:
         model = GoodsModel
@@ -49,7 +75,11 @@ class GoodsForm(forms.ModelForm):
                   'cost_price',
                   'wholesale_price',
                   'retail_price',
-                  'weight'
+                  'weight',
+                  'store_hall',
+                  'store_back',
+                  'store_up',
+                  'stock'
                   ]
 
 

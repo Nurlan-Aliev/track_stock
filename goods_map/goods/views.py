@@ -65,5 +65,3 @@ class UpdateStorage(LoginRequiredMixin, UpdateView):
     form_class = Storage
     success_url = reverse_lazy('home_page')
     extra_context = {'title': 'Update Storage', 'button': 'Update'}
-
-
