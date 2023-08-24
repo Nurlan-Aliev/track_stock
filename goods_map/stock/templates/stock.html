@@ -12,12 +12,14 @@
     {% for storage in store_hall %}
     <li>{{ storage }}</li>
         <ul>
-            {% for product in storage.goods_goodsmodel_set.all %}
+            {% for product in storage.store_hall.all %}
             <li>
                 <a href="{% url 'good_card' product.id %}"> {{ product }}</a>
             </li>
             {% endfor %}
         </ul>
+
+
     {% endfor %}
 </ul>
 {% endif %}
@@ -29,7 +31,7 @@
     {% for storage in store_back %}
     <li>{{ storage }}</li>
         <ul>
-            {% for product in storage.goods_goodsmodel_set.all %}
+            {% for product in storage.store_back.all %}
             <li>
                 <a href="{% url 'good_card' product.id %}"> {{ product }}</a>
             </li>
@@ -45,9 +47,8 @@
 <ul>
     {% for storage in store_up %}
     <li>{{ storage }}</li>
-    <li>{{ storage.goods_goodsmodel_set.all }}</li>
         <ul>
-            {% for product in storage.goods_goodsmodel_set.all %}
+            {% for product in storage.store_up.all %}
             <li>
                 <a href="{% url 'good_card' product.id %}"> {{ product }}</a>
             </li>
@@ -58,19 +59,19 @@
 {% endif %}
 
 
-<h2>Goods list in stock</h2>
-<ul>
-    {% for i in object_list %}
-    <li>{{ i }}</li>
-        <ul>
-            {% for w in i.goodsmodel_set.all %}
-            <li>
-                <a href="{% url 'good_card' w.id %}"> {{ w }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-</ul>
-
-
+<!--<h2>Goods list in stock</h2>-->
+<!--<ul>-->
+<!--    {% for i in object_list %}-->
+<!--    <li>{{ i }}</li>-->
+<!--        <ul>-->
+<!--            {% for w in i.goodsmodel_set.all %}-->
+<!--            <li>-->
+<!--                <a href="{% url 'good_card' w.id %}"> {{ w }}</a>-->
+<!--            </li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!---->
+<!---->
 {% endblock%}
