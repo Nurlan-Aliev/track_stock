@@ -15,6 +15,7 @@ from goods_map.mixin import AdminMixin
 
 
 class GoodsList(LoginRequiredMixin, FilterView):
+    paginate_by = 5
     template_name = 'goods_list.html'
     model = GoodsModel
     filterset_class = FilterForm
