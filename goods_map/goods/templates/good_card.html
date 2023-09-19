@@ -12,6 +12,7 @@
             <div class="d-flex">
                 <h1 class="mb-4">{{ object }}</h1>
             </div>
+            {% if request.user.is_superuser %}
             <div class="d-flex row p-1">
                 <button class="btn btn-primary mb-1">
                     <a class="text-white text-decoration-none" href="{% url 'update_good' pk=object.id %}">Update</a>
@@ -20,14 +21,16 @@
                     <a class="text-white text-decoration-none" href="{% url 'delete_good' pk=object.id %}">Delete</a>
                 </button>
             </div>
+            {% endif %}
         </div>
     </div>
-
+    {% if request.user.is_superuser %}
     <div>
         <button class="btn btn-success mb-1">
             <a class="text-white text-decoration-none" href="{% url 'add_image' pk=object.id %}">Add Foto</a>
         </button>
     </div>
+    {% endif %}
     <div class="col" >
         {% if object.imagemodel_set.all %}
         {% for i in object.imagemodel_set.all %}
