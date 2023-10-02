@@ -6,111 +6,115 @@
 {% block main %}
 
 <div class="container">
-    {% for good in object_list %}
-    <a href="{% url 'good_card' pk=good.id %}" class="text-black text-decoration-none"><div class="row align-items-center">
-        <div class="col" >
-            {% if good.imagemodel_set.all %}
-            {% for i in good.imagemodel_set.all %}
-            <img src="{{ i.images.url }}" class="rounded float-left" alt="{{ i.images }}" style="max-height:150px">
+    {% if object_list %}
+        {% for good in object_list %}
+        <a href="{% url 'good_card' pk=good.id %}" class="text-black text-decoration-none"><div class="row align-items-center">
+            <div class="col" >
+                {% if good.imagemodel_set.all %}
+                {% for i in good.imagemodel_set.all %}
+                <img src="{{ i.images.url }}" class="rounded float-left" alt="{{ i.images }}" style="max-height:150px">
 
-            {% endfor %}
-            {% else %}
-            <img src="{% static 'goods_map/image_not_found.png' %}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
-            {% endif %}
-        </div>
-        <div class="col">
-            <div class="row p-1">
-
-                <div class="col">
-                    Name
-                </div>
-
-                <div class="col">
-                    {{ good.name }}
-                </div>
-            </div>
-            <div class="row p-1">
-
-                <div class="col">
-                    Wholesale price
-                </div>
-
-                <div class="col">
-                    {% if good.wholesale_price %}
-                    {{ good.wholesale_price }} ₼
-                    {% else %}
-                    ---
-                    {% endif %}
-
-                </div>
-            </div>
-
-            <div class="row p-1">
-
-                <div class="col">
-                    Retail price
-                </div>
-
-                <div class="col">
-                    {% if good.retail_price %}
-                    {{ good.retail_price }} ₼
-                    {% else %}
-                    ---
-                    {% endif %}
-                </div>
-            </div>
-
-            <div class="row p-1">
-
-                <div class="col">
-                    Market stock
-                </div>
-
-                <div class="col">
-                    {% if good.store_hall or good.store_back or good.store_up %}
-                    <div class="col">
-                        {% if good.store_hall %}
-                        {{ good.store_hall }}
-                        {% endif %}
-                    </div>
-                    <div class="col">
-                        {% if good.store_back %}
-                        {{ good.store_back }}
-                        {% endif %}
-                    </div>
-                    <div class="col">
-                        {% if good.store_up %}
-                        {{ good.store_up }}
-                        {% endif %}
-                    </div>
-                    {% else %}
-                    ---
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div></a>
-    <hr class="border-black">
-    {% endfor %}
-    <div class="container">
-        <div class="row p-1">
-            <div class="col">
-                {% if page_obj.has_previous %}
-                <h2>
-                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
-                </h2>
+                {% endfor %}
+                {% else %}
+                <img src="{% static 'goods_map/image_not_found.png' %}" class="rounded float-left" alt="Responsive image" style="max-height:150px">
                 {% endif %}
             </div>
             <div class="col">
-                {% if page_obj.has_next %}
-                <h2>
-                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
-                </h2>
-                {% endif %}
+                <div class="row p-1">
+
+                    <div class="col">
+                        Name
+                    </div>
+
+                    <div class="col">
+                        {{ good.name }}
+                    </div>
+                </div>
+                <div class="row p-1">
+
+                    <div class="col">
+                        Wholesale price
+                    </div>
+
+                    <div class="col">
+                        {% if good.wholesale_price %}
+                        {{ good.wholesale_price }} ₼
+                        {% else %}
+                        ---
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <div class="row p-1">
+
+                    <div class="col">
+                        Retail price
+                    </div>
+
+                    <div class="col">
+                        {% if good.retail_price %}
+                        {{ good.retail_price }} ₼
+                        {% else %}
+                        ---
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row p-1">
+
+                    <div class="col">
+                        Market stock
+                    </div>
+
+                    <div class="col">
+                        {% if good.store_hall or good.store_back or good.store_up %}
+                        <div class="col">
+                            {% if good.store_hall %}
+                            {{ good.store_hall }}
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            {% if good.store_back %}
+                            {{ good.store_back }}
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            {% if good.store_up %}
+                            {{ good.store_up }}
+                            {% endif %}
+                        </div>
+                        {% else %}
+                        ---
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div></a>
+        <hr class="border-black">
+        {% endfor %}
+        <div class="container">
+            <div class="row p-1">
+                <div class="col">
+                    {% if page_obj.has_previous %}
+                    <h2>
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    </h2>
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {% if page_obj.has_next %}
+                    <h2>
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+                    </h2>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-    {% endblock%}
+        {% endblock%}
+    {% else %}
+        <h2>Nothing found</h2>
+    {% endif %}
 </div>
 
 <h1 class="my-4">List of goods</h1>

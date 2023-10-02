@@ -25,11 +25,12 @@ class LoginForm(AuthenticationForm):
 
 
 class FilterForm(django_filters.FilterSet):
-    name = django_filters.CharFilter(lookup_expr='icontains',
-                                     label='Name',
-                                     widget=forms.TextInput(
-                                         attrs={'id': 'id_status',
-                                                'class': 'mb-3 border-warning border-3 form-control-lg'}))
+    name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        label='Name',
+        widget=forms.TextInput(
+            attrs={'id': 'id_status',
+                   'class': 'mb-3 border-warning border-3 form-control-lg'}))
 
     class Meta:
         model = GoodsModel

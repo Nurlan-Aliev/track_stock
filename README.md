@@ -11,14 +11,18 @@ Track Stock is application for accounting for goods
 * Simple and Intuitive Interface: The application is designed with user convenience in mind.
 
 ## Install
-1. Use the package manager [poetry](https://python-poetry.org/docs/) to install.
+1. Clone this repo
+    ```bash
+   git cline https://github.com/Nurlan-Aliev/track_stock.git
+   ```
+2. Use the package manager [poetry](https://python-poetry.org/docs/) to install.
 
-```bash
-poetry install
-```
-2. Сreate a ".env" file in the root directory of the project.
+    ```bash
+    poetry install
+    ```
+3. Сreate a ".env" file in the root directory of the project.
 
-3. Add in .env file
+4. Add in .env file
    * SECRET_KEY - your super secret key
    * LINK - PasswordYour website domain.
    * DATABASE_URL - link to your database
@@ -55,3 +59,11 @@ To start using the application in your development environment run:
 make dev
 ```
 
+## Build with:
+python
+django
+django-bootstrap4
+pillow
+gunicorn
+rollbar
+django-selectel-storage
