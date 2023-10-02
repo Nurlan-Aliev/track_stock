@@ -1,4 +1,7 @@
 start:
+	gunicorn goods_map.wsgi
+
+dev:
 	python3 manage.py runserver
 
 migrate:
